@@ -1,0 +1,5 @@
+print('Введите 2 числа, среднее арифметическое которых требуется найти.')
+x = float(input())
+y = float(input())
+sr = (x + y) / 2
+print(round(sr))
