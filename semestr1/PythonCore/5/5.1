@@ -1,0 +1,6 @@
+n = int(input())
+A = []
+for i in range(n):
+    x = input()
+    A.append(x)
+print(n - len(set(A)) * 2)
