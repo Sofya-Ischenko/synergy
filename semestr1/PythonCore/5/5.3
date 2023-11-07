@@ -1,0 +1,22 @@
+s = input()
+d = input()
+for j in range(100):
+    for i in range(len(s)):
+        if s[i] == ' ':
+            s1 = s[:i]
+            s2 = s[i+1:]
+            s = s1 + s2
+            break
+for j in range(100):
+    for i in range(len(d)):
+        if d[i] == ' ':
+            d1 = d[:i]
+            d2 = d[i+1:]
+            d = d1 + d2
+            break
+s = set(s)
+d = set(d)
+if s == d:
+    print('True')
+else:
+    print('False')
