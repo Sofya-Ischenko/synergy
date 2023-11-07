@@ -1,0 +1,14 @@
+a = input().split()
+g = input().split()
+t = input().split()
+x = []
+for i in range(len(a)):
+    for j in range(len(g)):
+        for k in range(len(t)):
+            if a[i] == g[j] == t[k]:
+                x.append(a[i])
+if x == []:
+    print('Все три задачи никто не решил.')
+else:
+    x = sorted(x)
+    print(', '.join(x))
