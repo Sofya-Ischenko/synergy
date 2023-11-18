@@ -1,0 +1,6 @@
+print('Введите числа через пробел')
+s = input()
+a = s.split()
+result = list(filter(lambda x: (int(x) % 19 == 0) or (int(x) % 30 == 0), a))
+result = ', '.join(result)
+print(result)
