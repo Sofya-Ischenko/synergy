@@ -1,0 +1,8 @@
+from functools import reduce
+print('Введите числа через пробел')
+s = input()
+a = s.split()
+for i in range(len(a)):
+    a[i] = int(a[i])
+result = reduce(max, a)
+print(result)
