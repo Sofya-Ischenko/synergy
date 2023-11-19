@@ -1,1 +1,15 @@
-
+print('Введите числа через пробел')
+s = input()
+a = s.split()
+print('Введите числа через пробел')
+s = input()
+b = s.split()
+d = ''
+if len(a) < len(b):
+    for i in range(len(b) - len(a)):
+        a.append('0')
+elif len(b) < len(a):
+    for i in range(len(a) - len(b)):
+        b.append('0')
+result = list(map(lambda x, y: int(x) + int(y), a, b))
+print(result)
