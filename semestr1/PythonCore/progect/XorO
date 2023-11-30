@@ -1,0 +1,78 @@
+import random as rn
+
+def draw_board(field):
+    print(str(field[0]) + '|' + str(field[1]) + '|' + str(field[2]))
+    print(str(field[3]) + '|' + str(field[4]) + '|' + str(field[5]))
+    print(str(field[6]) + '|' + str(field[7]) + '|' + str(field[8]))
+
+def get_player_move(field, player_symbol):
+    move = input('Ваш ход: ')
+    while True:
+        if move.isdigit() and len(move) == 1 and field[int(move) - 1] in '123456789':
+            field[int(move) - 1] = player_symbol
+            return
+        else:
+            if not move.isdigit():
+                print('Неверный формат')
+            elif len(move) != 1:
+                print('Вы вышли за пределы игрового поля')
+            else:
+                print('Сюда уже сходили, выберете другое место')
+            move = input('Ваш ход: ')
+
+def get_computer_move(field, computer_symbol):
+    move = rn.randint(1, 9)
+    while True:
+        if field[move - 1] in '123456789':
+            field[move - 1] = computer_symbol
+            return
+        else:
+            move = rn.randint(1, 9)
+
+def get_winner(field, symbol):
+    if (field[0] == field[1] == field[2] == symbol
+        or field[3] == field[4] == field[5] == symbol
+        or field[6] == field[7] == field[8] == symbol
+        or field[0] == field[3] == field[6] == symbol
+        or field[1] == field[4] == field[7] == symbol
+        or field[2] == field[5] == field[8] == symbol
+        or field[0] == field[4] == field[8] == symbol
+        or field[2] == field[4] == field[6] == symbol):
+        return True
+    else:
+        return False
+
+def check_win(field, player_symbol, computer_symbol):
+    if get_winner(field, player_symbol):
+        print('Вы победили!')
+        return True
+    elif get_winner(field, computer_symbol):
+        print('Победил компьютер.')
+        return True
+    elif field.count('X') == 5:
+        print('Ничья')
+        return True
+    return False
+
+def main():
+    print('Для хода укажите место, куда вы хотите сходить')
+    field = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['X', 'O']
+    player_symbol = symbols[rn.randint(0, 1)]
+    print('Вы будете ходить ' + player_symbol)
+    if player_symbol == 'X':
+        computer_symbol = 'O'
+    else:
+        computer_symbol = 'X'
+        get_computer_move(field, computer_symbol)
+    draw_board(field)
+    while True:
+        get_player_move(field, player_symbol)
+        if check_win(field, player_symbol, computer_symbol):
+            break
+        get_computer_move(field, computer_symbol)
+        draw_board(field)
+        if check_win(field, player_symbol, computer_symbol):
+            break
+
+main()
