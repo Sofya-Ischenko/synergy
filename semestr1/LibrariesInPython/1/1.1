@@ -1,0 +1,20 @@
+import scipy.stats as sps
+from scipy.stats import norm, uniform
+import numpy as np
+
+# Создание объектов распределений
+normal_dist = norm(loc=0, scale=1)
+uniform_dist = uniform(loc=0, scale=1)
+
+# Значения для функции плотности вероятности (PDF)
+x = np.linspace(-3, 3, 1000)
+pdf_normal = normal_dist.pdf(x)
+pdf_uniform = uniform_dist.pdf(x)
+
+# Значения для функции кумулятивной вероятности (CDF)
+cdf_normal = normal_dist.cdf(x)
+cdf_uniform = uniform_dist.cdf(x)
+
+# Генерация 10 случайных чисел из каждого распределения
+random_numbers_normal = normal_dist.rvs(size=10)
+random_numbers_uniform = uniform_dist.rvs(size=10)
