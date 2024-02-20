@@ -1,0 +1,18 @@
+import numpy as np
+from scipy.stats import ttest_1samp
+
+# Создаем выборку из 10 случайных чисел из Uniform(-1, 1)
+sample = np.random.uniform(-1, 1, 10)
+
+# Проводим одновыборочный t-тест
+t_statistic, p_value = ttest_1samp(sample, 0)
+
+# Выводим результаты теста
+print("Выборка:", sample)
+print("t-статистика:", t_statistic)
+print("p-значение:", p_value)
+
+if p_value < 0.05:
+    print("Отвергаем нулевую гипотезу: среднее значение выборки не равно 0")
+else:
+    print("Принимаем нулевую гипотезу: среднее значение выборки равно 0")
