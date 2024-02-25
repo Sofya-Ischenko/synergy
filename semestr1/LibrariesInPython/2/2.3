@@ -1,0 +1,6 @@
+import pandas as pd
+
+data = {i: i**2 for i in range(1, 21)}
+series = pd.Series(data)
+filtered_series = series[series.index % 3 != 0]
+print(filtered_series)
