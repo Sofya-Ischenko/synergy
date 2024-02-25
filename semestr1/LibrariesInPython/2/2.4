@@ -1,0 +1,6 @@
+import pandas as pd
+
+df = pd.read_csv("students.csv") # Считываем данные из файла "students.csv"
+print(df.head(3)) # Выводим первые 3 строки датафрейма
+print(df.tail(2)) # Выводим последние 2 строки датафрейма
+print(df.info()) # Получаем общую информацию о датафрейме
