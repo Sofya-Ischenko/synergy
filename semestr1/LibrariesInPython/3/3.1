@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+grades = [2, 3, 3, 2, 5, 5, 3, 4, 5, 4]
+num_bins = 5
+bin_width = (max(grades) - min(grades)) / num_bins
+plt.hist(grades, bins=num_bins, range=(min(grades), max(grades)), edgecolor='black')
+plt.xlabel('Оценка')
+plt.ylabel('Количество учеников')
+plt.title('Распределение оценок учеников в классе по предмету "Математика"')
+plt.show()
